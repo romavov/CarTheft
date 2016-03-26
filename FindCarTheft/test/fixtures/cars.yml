@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  number_auto: 
+  year: 1
+  color: MyString
+  city: MyString
+  theft_date: 2016-03-26
+  telephone: 1
+  money: 1
+  description: MyText
+
+two:
+  name: MyString
+  number_auto: 
+  year: 1
+  color: MyString
+  city: MyString
+  theft_date: 2016-03-26
+  telephone: 1
+  money: 1
+  description: MyText
