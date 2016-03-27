@@ -2,7 +2,7 @@ class CreateCars < ActiveRecord::Migration
   def change
     create_table :cars do |t|
       t.string :name
-      t.string :number_autos
+      t.string :number_auto
       t.integer :year
       t.string :color
       t.string :city

@@ -1,0 +1,13 @@
+%h1= @car.name
+%p= @car.number_auto
+%p= @car.year
+%p= @car.color
+%p= @car.city
+%p= @car.theft_date
+%p= @car.telephone
+%p= @car.money
+%p= @car.description
+
+=link_to "Back to HOME", root_path
+=link_to "Edit", edit_car_path(@car)
+=link_to "Delete", car_path(@car), method: :delete, data: { confirm: "Are you sure?"}
