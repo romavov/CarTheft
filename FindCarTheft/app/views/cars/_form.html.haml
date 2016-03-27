@@ -1,6 +1,7 @@
 .container
   .container.col-md-4
     = simple_form_for(@car, html: { class: 'form-horizontal'}) do |f|
+      =f.collection_select :category_id, Category.all, :id, :name, { promt: "Choose a category" }
       = f.input :name, label: "Car name"
       = f.input :number_auto, label: "Car number"
       = f.input :year, label: "Year of issue"
