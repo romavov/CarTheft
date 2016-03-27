@@ -1,8 +1,6 @@
-.container
-  = link_to "New Car", new_car_path
-  - @cars.each do |car|
-    %h2= link_to car.name, car
-    %p= car.number_auto
-    %p= car.money
-    %p= car.theft_date
-    %p= car.city
+- @cars.each do |car|
+  %h2= link_to car.name, car
+  %p= car.number_auto
+  %p= car.money
+  %p= car.theft_date
+  %p= car.city
