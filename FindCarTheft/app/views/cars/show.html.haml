@@ -1,11 +1,14 @@
 = render 'layouts/edit_panel'
 
-%h1= @car.name
-%p= 'Car number - ' + @car.number_auto.to_s
-%p= 'Year of issue - ' + @car.year.to_s
-%p= 'Color - ' + @car.color.to_s
-%p= 'City - ' + @car.city.to_s
-%p= 'Theft date - ' + @car.theft_date.to_s
-%p= 'Tel. Number - ' + @car.telephone.to_s
-%p= 'Money - ' + @car.money.to_s
-%p= 'Description - ' + @car.description.to_s
+.row
+  .col-sm-1
+  .col-sm-3
+    %h1= @car.name
+    %p= 'Car number - ' + @car.number_auto.to_s
+    %p= 'Year of issue - ' + @car.year.to_s
+    %p= 'Color - ' + @car.color.to_s
+    %p= 'City - ' + @car.city.to_s
+    %p= 'Theft date - ' + @car.theft_date.to_s
+    %p= 'Tel. Number - ' + @car.telephone.to_s
+    %p= 'Money - ' + @car.money.to_s
+    %p= 'Description - ' + @car.description.to_s
