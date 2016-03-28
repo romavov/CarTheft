@@ -1,3 +1,5 @@
+= render 'layouts/edit_panel'
+
 %h1= @car.name
 %p= 'Car number - ' + @car.number_auto.to_s
 %p= 'Year of issue - ' + @car.year.to_s
@@ -7,7 +9,3 @@
 %p= 'Tel. Number - ' + @car.telephone.to_s
 %p= 'Money - ' + @car.money.to_s
 %p= 'Description - ' + @car.description.to_s
-
-=link_to "Back to HOME", root_path
-=link_to "Edit", edit_car_path(@car)
-=link_to "Delete", car_path(@car), method: :delete, data: { confirm: "Are you sure?"}
