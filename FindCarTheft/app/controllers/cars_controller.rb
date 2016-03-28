@@ -1,6 +1,7 @@
 class CarsController < ApplicationController
   before_action :find_car, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
+
   def index
     if params[:category].blank?
       @cars = Car.all.order("created_at DESC")
@@ -11,6 +12,7 @@ class CarsController < ApplicationController
   end
 
   def show
+    @car = Car.find(params[:id])
   end
 
   def new
@@ -18,8 +20,7 @@ class CarsController < ApplicationController
   end
 
   def create
-    @car = Car.new(cars_params)
-
+    @car = Car.new(params.require(:car).permit!)
     if @car.save
       redirect_to @car
     else
@@ -31,6 +32,7 @@ class CarsController < ApplicationController
   end
 
   def update
+    @car.update_attributes(:current_user.id => "user_id")
     if @car.update(cars_params)
       redirect_to @car
     else
@@ -46,7 +48,7 @@ class CarsController < ApplicationController
   private
 
   def cars_params
-    params.require(:car).permit(:category_id, :name, :number_auto, :year, :color, :city, :theft_date, :telephone, :money, :description)
+    params.require(:car).permit(:user_id, :category_id, :name, :number_auto, :year, :color, :city, :theft_date, :telephone, :money, :description)
   end
 
   def find_car
