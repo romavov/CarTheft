@@ -1,0 +1,35 @@
+%nav.navbar.navbar-default
+  .container-fluid
+    / Brand and toggle get grouped for better mobile display
+    .navbar-header
+      %button.navbar-toggle.collapsed{"aria-expanded" => "false", "data-target" => "#bs-example-navbar-collapse-1", "data-toggle" => "collapse", :type => "button"}
+        %span.sr-only Toggle navigation
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
+      %a.navbar-brand Find Cars Theft
+    / Collect the nav links, forms, and other content for toggling
+    #bs-example-navbar-collapse-1.collapse.navbar-collapse
+      %ul.nav.navbar-nav
+        %li.dropdown
+          %a.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
+            Categories of cars
+            %span.caret
+          %ul.dropdown-menu
+            %li= link_to "All cars", root_path
+            - Category.all.each do |category|
+              %li= link_to category.name, cars_path(category: category.name)
+      %form.navbar-form.navbar-left{:role => "search"}
+        .form-group
+          %input.form-control{:placeholder => "Search", :type => "text"}/
+        %button.btn.btn-default{:type => "submit"} Submit
+      %ul.nav.navbar-nav.navbar-right
+        %li
+          = link_to "Add car", new_car_path
+        %li
+          - if user_signed_in?
+            = link_to 'Sign out', destroy_user_session_path, :method => :delete
+          - else
+            = link_to 'Sign in', new_user_session_path
+    / /.navbar-collapse
+  / /.container-fluid

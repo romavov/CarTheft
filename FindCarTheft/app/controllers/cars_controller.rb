@@ -1,6 +1,6 @@
 class CarsController < ApplicationController
   before_action :find_car, only: [:show, :edit, :update, :destroy]
-
+  before_action :authenticate_user!
   def index
     if params[:category].blank?
       @cars = Car.all.order("created_at DESC")

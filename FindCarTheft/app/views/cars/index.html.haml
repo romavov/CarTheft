@@ -1,6 +1,9 @@
 - @cars.each do |car|
-  %h2= link_to car.name, car
-  %p= car.number_auto
-  %p= car.money
-  %p= car.theft_date
-  %p= car.city
+  .col-sm-3
+    .thumbnail
+      = link_to car.name, car
+      .caption
+        %p= 'Number - ' + car.number_auto.to_s
+        %p= 'Money - $' + car.money.to_s
+        %p= 'Date of theft - ' + car.theft_date.to_s
+        %p= 'City - ' + car.city.to_s
