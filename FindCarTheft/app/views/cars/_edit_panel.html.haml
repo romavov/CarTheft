@@ -1,0 +1,9 @@
+- if car.user_id == current_user.id
+  %ol.breadcrumb
+    %li
+      =link_to "Edit", edit_car_path(car)
+    %li
+      =link_to "Delete", car_path(car), method: :delete, data: { confirm: "Are you sure?"}
+
+-else
+  %p Send message

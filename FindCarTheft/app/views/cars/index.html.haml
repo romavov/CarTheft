@@ -1,9 +1,25 @@
 - @cars.each do |car|
-  .col-sm-3
+  .col-sm-4
     .thumbnail
-      = link_to car.name, car
+      %h1
+        %center
+          = link_to car.name, car
+      %hr
       .caption
         %p= 'Number - ' + car.number_auto.to_s
         %p= 'Money - $' + car.money.to_s
         %p= 'Date of theft - ' + car.theft_date.to_s
         %p= 'City - ' + car.city.to_s
+
+        - if car.user_id == current_user.id
+          %ol.breadcrumb
+            %li
+              =link_to "Edit", edit_car_path(car)
+            %li
+              =link_to "Delete", car_path(car), method: :delete, data: { confirm: "Are you sure?"}
+        -else
+          %ol.breadcrumb
+            %p Send mail:
+            %address
+              %a{:href => "mailto: car.user.email"}
+                = car.user.email
