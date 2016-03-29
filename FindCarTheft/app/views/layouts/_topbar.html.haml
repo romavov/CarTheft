@@ -1,4 +1,4 @@
-%nav.navbar.navbar-default
+%nav.navbar.navbar-default.navbar-fixed-top
   .container-fluid
     / Brand and toggle get grouped for better mobile display
     .navbar-header
@@ -23,9 +23,11 @@
               %li= link_to category.name, cars_path(category: category.name)
       %form.navbar-form.navbar-left{:role => "search"}
         .form-group
-          %input.form-control{:placeholder => "Search", :type => "text"}/
-        %button.btn.btn-default{:type => "submit"} Submit
+          %input.form-control{:placeholder => "search", :type => "text"}/
       %ul.nav.navbar-nav.navbar-right
+        %li
+          - if user_signed_in?
+            = current_user.email
         %li
           = link_to "Add car", new_car_path
         %li

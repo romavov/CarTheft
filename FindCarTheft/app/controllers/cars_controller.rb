@@ -21,6 +21,7 @@ class CarsController < ApplicationController
 
   def create
     @car = Car.new(params.require(:car).permit!)
+    @car.update_attribute(:user_id, current_user.id)
     if @car.save
       redirect_to @car
     else
