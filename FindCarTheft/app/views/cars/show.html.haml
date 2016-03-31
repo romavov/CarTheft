@@ -1,5 +1,4 @@
 .row
-  .col-sm-1
   .col-sm-3
     %h1= @car.name
     %p= 'Car number - ' + @car.number_auto.to_s
@@ -10,4 +9,16 @@
     %p= 'Tel. Number - ' + @car.telephone.to_s
     %p= 'Money - ' + @car.money.to_s
     %p= 'Description - ' + @car.description.to_s
-    %p= 'Address - ' + @car.address.to_s    
+    %p= 'Address - ' + @car.address.to_s
+
+  .col-sm-9
+    %div{:style => "width: 800px;"}
+      #map{:style => "width: 800px; height: 400px;"}
+
+      :javascript
+        handler = Gmaps.build('Google');
+        handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
+          markers = handler.addMarkers;
+          handler.bounds.extendWith(markers);
+          handler.fitMapToBounds();
+        });

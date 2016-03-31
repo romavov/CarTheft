@@ -27,7 +27,7 @@
       %ul.nav.navbar-nav.navbar-right
         %li
           - if user_signed_in?
-            = current_user.email
+            = link_to current_user.email
         %li
           = link_to "Add car", new_car_path
         %li

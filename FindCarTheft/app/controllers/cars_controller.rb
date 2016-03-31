@@ -8,6 +8,12 @@ class CarsController < ApplicationController
     else
       @category_id = Category.find_by(name: params[:category]).id
       @cars = Car.where(category_id: @category_id).order("created_at DESC")
+
+      @cars = Car.all
+      @hash = Gmaps4rails.build_markers(@cars) do |car, marker|
+        marker.lat car.latitude
+        marker.lng car.longitude
+      end
     end
   end
 
